@@ -45,7 +45,7 @@ public class AlienResource {
         return new ResponseEntity<>(alienRepository.save(alienEntity), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "add", method = RequestMethod.POST)
+    @RequestMapping(path = "random", method = RequestMethod.POST)
     public ResponseEntity<AlienEntity> addRandomAlien(
             @RequestParam String race,
             @RequestParam String rank

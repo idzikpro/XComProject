@@ -57,7 +57,7 @@ public class CraftResource {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(path = "add", method = RequestMethod.POST)
+    @RequestMapping(path = "random", method = RequestMethod.POST)
     public ResponseEntity<CraftEntity> addCraftByName(
             @RequestParam String name
     ) {

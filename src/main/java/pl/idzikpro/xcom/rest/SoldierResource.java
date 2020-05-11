@@ -81,7 +81,7 @@ public class SoldierResource {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(path = "add", method = RequestMethod.POST)
+    @RequestMapping(path = "random", method = RequestMethod.POST)
     public ResponseEntity<SoldierEntity> addSoldierByRank(
             @RequestParam String rank
     ) {

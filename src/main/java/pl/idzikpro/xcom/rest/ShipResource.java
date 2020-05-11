@@ -78,7 +78,7 @@ public class ShipResource {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(path = "add", method = RequestMethod.POST)
+    @RequestMapping(path = "random", method = RequestMethod.POST)
     public ResponseEntity<ShipEntity> addShipByName(
             @RequestParam String name
     ) {
@@ -87,7 +87,7 @@ public class ShipResource {
         return new ResponseEntity<>(shipRepository.save(shipEntity), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "add",method = RequestMethod.PUT)
+    @RequestMapping(path = "random",method = RequestMethod.PUT)
     public ResponseEntity<ShipEntity> addAlienToShip(
             @RequestParam int alienId,
             @RequestParam int shipId){
