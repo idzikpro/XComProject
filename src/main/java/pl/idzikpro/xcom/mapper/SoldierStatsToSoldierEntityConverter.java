@@ -3,13 +3,14 @@ package pl.idzikpro.xcom.mapper;
 import org.springframework.core.convert.converter.Converter;
 import pl.idzikpro.xcom.entity.SoldierEntity;
 import pl.idzikpro.xcom.service.soldiers.SoldierStats;
+import pl.idzikpro.xcom.tools.SoldierNameService;
 import pl.idzikpro.xcom.tools.SoldierService;
 
 public class SoldierStatsToSoldierEntityConverter implements Converter<SoldierStats, SoldierEntity> {
     @Override
     public SoldierEntity convert(SoldierStats soldierStats) {
         return SoldierEntity.builder()
-                .name(SoldierService.selectRandomName(soldierStats.getNationality()))
+                .name(SoldierNameService.selectRandomName(soldierStats.getNationality()))
                 .nationality(soldierStats.getNationality())
                 .rank(soldierStats.getRank())
                 .timeUnits(soldierStats.getTimeUnits())
