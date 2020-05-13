@@ -10,12 +10,12 @@
     </parent>
     <groupId>pl.idzikpro</groupId>
     <artifactId>xcom</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.00</version>
     <name>xcom</name>
     <description>XCom game</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>

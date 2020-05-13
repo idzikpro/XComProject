@@ -1,9 +1,11 @@
 package pl.idzikpro.xcom.tools;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.idzikpro.xcom.entity.SoldierEntity;
 import pl.idzikpro.xcom.repository.SoldierRepository;
+import pl.idzikpro.xcom.service.soldiers.*;
 import pl.idzikpro.xcom.stats.soldier.*;
 
 import java.util.*;
@@ -14,11 +16,17 @@ public class SoldierService {
     SoldierRepository soldierRepository;
 
     static Random random = new Random();
+    @Getter
     static List<String> americanSetOfNames = new ArrayList<>();
+    @Getter
     static List<String> britishSetOfNames = new ArrayList<>();
+    @Getter
     static List<String> frenchSetOfNames = new ArrayList<>();
+    @Getter
     static List<String> germanSetOfNames = new ArrayList<>();
+    @Getter
     static List<String> japaneseSetOfNames = new ArrayList<>();
+    @Getter
     static List<String> russianSetOfNames = new ArrayList<>();
 
     public static int drawNumber(int left, int right) {
@@ -274,184 +282,40 @@ public class SoldierService {
 
 
     public static SoldierEntity addRookie(String nationality) {
-        String name = selectRandomName(nationality);
-        String myRank = "rookie";
-        int timeUnits = drawNumber(RookieStats.TIME_UNITS_MIN, RookieStats.TIME_UNITS_MAX);
-        int energy = drawNumber(RookieStats.ENERGY_MIN, RookieStats.ENERGY_MAX);
-        int health = drawNumber(RookieStats.HEALTH_MIN, RookieStats.HEALTH_MAX);
-        int bravery = drawNumber(RookieStats.BRAVERY_MIN, RookieStats.BRAVERY_MAX);
-        int reactions = drawNumber(RookieStats.REACTIONS_MIN, RookieStats.REACTIONS_MAX);
-        int firingAccuracy = drawNumber(RookieStats.FIRING_ACCURACY_MIN, RookieStats.FIRING_ACCURACY_MAX);
-        int throwingAccuracy = drawNumber(RookieStats.THROWING_ACCURACY_MIN, RookieStats.THROWING_ACCURACY_MAX);
-        int strength = drawNumber(RookieStats.STRENGTH_MIN, RookieStats.STRENGTH_MAX);
-        int psiSkill = drawNumber(RookieStats.PSI_SKILL_MIN, RookieStats.PSI_SKILL_MAX);
-        int psiStrength = drawNumber(RookieStats.PSI_STRENGTH_MIN, RookieStats.PSI_STRENGTH_MAX);
-        int meleeAccuracy = drawNumber(RookieStats.MELEE_ACCURACY_MIN, RookieStats.MELEE_ACCURACY_MAX);
-        int missions = drawNumber(RookieStats.MISSIONS_MIN, RookieStats.MISSIONS_MAX);
-        int killed = drawNumber(RookieStats.KILLED_MIN, RookieStats.KILLED_MAX);
-        String armourType = "no-armour";
-        String picture = "no-armour";
-
-        SoldierEntity soldierEntity = SoldierEntity.builder()
-                .name(name).rank(myRank).timeUnits(timeUnits).nationality(nationality)
-                .energy(energy).health(health).bravery(bravery).reactions(reactions)
-                .firingAccuracy(firingAccuracy).throwingAccuracy(throwingAccuracy)
-                .strength(strength).psiSkill(psiSkill).psiStrength(psiStrength)
-                .meleeAccuracy(meleeAccuracy).armourType(armourType)
-                .missions(missions).killed(killed).picture(picture)
-                .build();
-        return soldierEntity;
+        AddRandomSoldier addRandomSoldier=new AddRandomSoldier(nationality);
+        addRandomSoldier.setSoldier(new AddRookie());
+        return addRandomSoldier.add(nationality);
     }
 
 
     public static SoldierEntity addSquaddie(String nationality) {
-        String name = selectRandomName(nationality);
-        String myRank = "squaddie";
-        int timeUnits = drawNumber(SquaddieStats.TIME_UNITS_MIN, SquaddieStats.TIME_UNITS_MAX);
-        int energy = drawNumber(SquaddieStats.ENERGY_MIN, SquaddieStats.ENERGY_MAX);
-        int health = drawNumber(SquaddieStats.HEALTH_MIN, SquaddieStats.HEALTH_MAX);
-        int bravery = drawNumber(SquaddieStats.BRAVERY_MIN, SquaddieStats.BRAVERY_MAX);
-        int reactions = drawNumber(SquaddieStats.REACTIONS_MIN, SquaddieStats.REACTIONS_MAX);
-        int firingAccuracy = drawNumber(SquaddieStats.FIRING_ACCURACY_MIN, SquaddieStats.FIRING_ACCURACY_MAX);
-        int throwingAccuracy = drawNumber(SquaddieStats.THROWING_ACCURACY_MIN, SquaddieStats.THROWING_ACCURACY_MAX);
-        int strength = drawNumber(SquaddieStats.STRENGTH_MIN, SquaddieStats.STRENGTH_MAX);
-        int psiSkill = drawNumber(SquaddieStats.PSI_SKILL_MIN, SquaddieStats.PSI_SKILL_MAX);
-        int psiStrength = drawNumber(SquaddieStats.PSI_STRENGTH_MIN, SquaddieStats.PSI_STRENGTH_MAX);
-        int meleeAccuracy = drawNumber(SquaddieStats.MELEE_ACCURACY_MIN, SquaddieStats.MELEE_ACCURACY_MAX);
-        int missions = drawNumber(SquaddieStats.MISSIONS_MIN, SquaddieStats.MISSIONS_MAX);
-        int killed = drawNumber(SquaddieStats.KILLED_MIN, SquaddieStats.KILLED_MAX);
-        String armourType = "no-armour";
-        String picture = "no-armour";
-
-        SoldierEntity soldierEntity = SoldierEntity.builder()
-                .name(name).rank(myRank).timeUnits(timeUnits).nationality(nationality)
-                .energy(energy).health(health).bravery(bravery).reactions(reactions)
-                .firingAccuracy(firingAccuracy).throwingAccuracy(throwingAccuracy)
-                .strength(strength).psiSkill(psiSkill).psiStrength(psiStrength)
-                .meleeAccuracy(meleeAccuracy).armourType(armourType)
-                .missions(missions).killed(killed).picture(picture)
-                .build();
-        return soldierEntity;
+        AddRandomSoldier addRandomSoldier=new AddRandomSoldier(nationality);
+        addRandomSoldier.setSoldier(new AddSquaddie());
+        return addRandomSoldier.add(nationality);
     }
 
     public static SoldierEntity addSergeant(String nationality) {
-        String name = selectRandomName(nationality);
-        String myRank = "sergeant";
-        int timeUnits = drawNumber(SergeantStats.TIME_UNITS_MIN, SergeantStats.TIME_UNITS_MAX);
-        int energy = drawNumber(SergeantStats.ENERGY_MIN, SergeantStats.ENERGY_MAX);
-        int health = drawNumber(SergeantStats.HEALTH_MIN, SergeantStats.HEALTH_MAX);
-        int bravery = drawNumber(SergeantStats.BRAVERY_MIN, SergeantStats.BRAVERY_MAX);
-        int reactions = drawNumber(SergeantStats.REACTIONS_MIN, SergeantStats.REACTIONS_MAX);
-        int firingAccuracy = drawNumber(SergeantStats.FIRING_ACCURACY_MIN, SergeantStats.FIRING_ACCURACY_MAX);
-        int throwingAccuracy = drawNumber(SergeantStats.THROWING_ACCURACY_MIN, SergeantStats.THROWING_ACCURACY_MAX);
-        int strength = drawNumber(SergeantStats.STRENGTH_MIN, SergeantStats.STRENGTH_MAX);
-        int psiSkill = drawNumber(SergeantStats.PSI_SKILL_MIN, SergeantStats.PSI_SKILL_MAX);
-        int psiStrength = drawNumber(SergeantStats.PSI_STRENGTH_MIN, SergeantStats.PSI_STRENGTH_MAX);
-        int meleeAccuracy = drawNumber(SergeantStats.MELEE_ACCURACY_MIN, SergeantStats.MELEE_ACCURACY_MAX);
-        int missions = drawNumber(SergeantStats.MISSIONS_MIN, SergeantStats.MISSIONS_MAX);
-        int killed = drawNumber(SergeantStats.KILLED_MIN, SergeantStats.KILLED_MAX);
-        String armourType = "personal armour";
-        String picture = "personal armour";
-
-        SoldierEntity soldierEntity = SoldierEntity.builder()
-                .name(name).rank(myRank).timeUnits(timeUnits).nationality(nationality)
-                .energy(energy).health(health).bravery(bravery).reactions(reactions)
-                .firingAccuracy(firingAccuracy).throwingAccuracy(throwingAccuracy)
-                .strength(strength).psiSkill(psiSkill).psiStrength(psiStrength)
-                .meleeAccuracy(meleeAccuracy).armourType(armourType)
-                .missions(missions).killed(killed).picture(picture)
-                .build();
-        return soldierEntity;
+        AddRandomSoldier addRandomSoldier=new AddRandomSoldier(nationality);
+        addRandomSoldier.setSoldier(new AddSergeant());
+        return addRandomSoldier.add(nationality);
     }
 
     public static SoldierEntity addCaptain(String nationality) {
-        String name = selectRandomName(nationality);
-        String myRank = "captain";
-        int timeUnits = drawNumber(CaptainStats.TIME_UNITS_MIN, CaptainStats.TIME_UNITS_MAX);
-        int energy = drawNumber(CaptainStats.ENERGY_MIN, CaptainStats.ENERGY_MAX);
-        int health = drawNumber(CaptainStats.HEALTH_MIN, CaptainStats.HEALTH_MAX);
-        int bravery = drawNumber(CaptainStats.BRAVERY_MIN, CaptainStats.BRAVERY_MAX);
-        int reactions = drawNumber(CaptainStats.REACTIONS_MIN, CaptainStats.REACTIONS_MAX);
-        int firingAccuracy = drawNumber(CaptainStats.FIRING_ACCURACY_MIN, CaptainStats.FIRING_ACCURACY_MAX);
-        int throwingAccuracy = drawNumber(CaptainStats.THROWING_ACCURACY_MIN, CaptainStats.THROWING_ACCURACY_MAX);
-        int strength = drawNumber(CaptainStats.STRENGTH_MIN, CaptainStats.STRENGTH_MAX);
-        int psiSkill = drawNumber(CaptainStats.PSI_SKILL_MIN, CaptainStats.PSI_SKILL_MAX);
-        int psiStrength = drawNumber(CaptainStats.PSI_STRENGTH_MIN, CaptainStats.PSI_STRENGTH_MAX);
-        int meleeAccuracy = drawNumber(CaptainStats.MELEE_ACCURACY_MIN, CaptainStats.MELEE_ACCURACY_MAX);
-        int missions = drawNumber(CaptainStats.MISSIONS_MIN, CaptainStats.MISSIONS_MAX);
-        int killed = drawNumber(CaptainStats.KILLED_MIN, CaptainStats.KILLED_MAX);
-        String armourType = "power suit";
-        String picture = "power suit";
-
-        SoldierEntity soldierEntity = SoldierEntity.builder()
-                .name(name).rank(myRank).timeUnits(timeUnits).nationality(nationality)
-                .energy(energy).health(health).bravery(bravery).reactions(reactions)
-                .firingAccuracy(firingAccuracy).throwingAccuracy(throwingAccuracy)
-                .strength(strength).psiSkill(psiSkill).psiStrength(psiStrength)
-                .meleeAccuracy(meleeAccuracy).armourType(armourType)
-                .missions(missions).killed(killed).picture(picture)
-                .build();
-        return soldierEntity;
+        AddRandomSoldier addRandomSoldier=new AddRandomSoldier(nationality);
+        addRandomSoldier.setSoldier(new AddCaptain());
+        return addRandomSoldier.add(nationality);
     }
 
     public static SoldierEntity addColonel(String nationality) {
-        String name = selectRandomName(nationality);
-        String myRank = "colonel";
-        int timeUnits = drawNumber(ColonelStats.TIME_UNITS_MIN, ColonelStats.TIME_UNITS_MAX);
-        int energy = drawNumber(ColonelStats.ENERGY_MIN, ColonelStats.ENERGY_MAX);
-        int health = drawNumber(ColonelStats.HEALTH_MIN, ColonelStats.HEALTH_MAX);
-        int bravery = drawNumber(ColonelStats.BRAVERY_MIN, ColonelStats.BRAVERY_MAX);
-        int reactions = drawNumber(ColonelStats.REACTIONS_MIN, ColonelStats.REACTIONS_MAX);
-        int firingAccuracy = drawNumber(ColonelStats.FIRING_ACCURACY_MIN, ColonelStats.FIRING_ACCURACY_MAX);
-        int throwingAccuracy = drawNumber(ColonelStats.THROWING_ACCURACY_MIN, ColonelStats.THROWING_ACCURACY_MAX);
-        int strength = drawNumber(ColonelStats.STRENGTH_MIN, ColonelStats.STRENGTH_MAX);
-        int psiSkill = drawNumber(ColonelStats.PSI_SKILL_MIN, ColonelStats.PSI_SKILL_MAX);
-        int psiStrength = drawNumber(ColonelStats.PSI_STRENGTH_MIN, ColonelStats.PSI_STRENGTH_MAX);
-        int meleeAccuracy = drawNumber(ColonelStats.MELEE_ACCURACY_MIN, ColonelStats.MELEE_ACCURACY_MAX);
-        int missions = drawNumber(ColonelStats.MISSIONS_MIN, ColonelStats.MISSIONS_MAX);
-        int killed = drawNumber(ColonelStats.KILLED_MIN, ColonelStats.KILLED_MAX);
-        String armourType = "flying suit";
-        String picture = "flying suit";
-
-        SoldierEntity soldierEntity = SoldierEntity.builder()
-                .name(name).rank(myRank).timeUnits(timeUnits).nationality(nationality)
-                .energy(energy).health(health).bravery(bravery).reactions(reactions)
-                .firingAccuracy(firingAccuracy).throwingAccuracy(throwingAccuracy)
-                .strength(strength).psiSkill(psiSkill).psiStrength(psiStrength)
-                .meleeAccuracy(meleeAccuracy).armourType(armourType)
-                .missions(missions).killed(killed).picture(picture)
-                .build();
-        return soldierEntity;
+        AddRandomSoldier addRandomSoldier=new AddRandomSoldier(nationality);
+        addRandomSoldier.setSoldier(new AddColonel());
+        return addRandomSoldier.add(nationality);
     }
 
     public static SoldierEntity addCommander(String nationality) {
-        String name = selectRandomName(nationality);
-        String myRank = "commander";
-        int timeUnits = drawNumber(CommanderStats.TIME_UNITS_MIN, CommanderStats.TIME_UNITS_MAX);
-        int energy = drawNumber(CommanderStats.ENERGY_MIN, CommanderStats.ENERGY_MAX);
-        int health = drawNumber(CommanderStats.HEALTH_MIN, CommanderStats.HEALTH_MAX);
-        int bravery = drawNumber(CommanderStats.BRAVERY_MIN, CommanderStats.BRAVERY_MAX);
-        int reactions = drawNumber(CommanderStats.REACTIONS_MIN, CommanderStats.REACTIONS_MAX);
-        int firingAccuracy = drawNumber(CommanderStats.FIRING_ACCURACY_MIN, CommanderStats.FIRING_ACCURACY_MAX);
-        int throwingAccuracy = drawNumber(CommanderStats.THROWING_ACCURACY_MIN, CommanderStats.THROWING_ACCURACY_MAX);
-        int strength = drawNumber(CommanderStats.STRENGTH_MIN, CommanderStats.STRENGTH_MAX);
-        int psiSkill = drawNumber(CommanderStats.PSI_SKILL_MIN, CommanderStats.PSI_SKILL_MAX);
-        int psiStrength = drawNumber(CommanderStats.PSI_STRENGTH_MIN, CommanderStats.PSI_STRENGTH_MAX);
-        int meleeAccuracy = drawNumber(CommanderStats.MELEE_ACCURACY_MIN, CommanderStats.MELEE_ACCURACY_MAX);
-        int missions = drawNumber(CommanderStats.MISSIONS_MIN, CommanderStats.MISSIONS_MAX);
-        int killed = drawNumber(CommanderStats.KILLED_MIN, CommanderStats.KILLED_MAX);
-        String armourType = "flying suit";
-        String picture = "flying suit";
-
-        SoldierEntity soldierEntity = SoldierEntity.builder()
-                .name(name).rank(myRank).timeUnits(timeUnits).nationality(nationality)
-                .energy(energy).health(health).bravery(bravery).reactions(reactions)
-                .firingAccuracy(firingAccuracy).throwingAccuracy(throwingAccuracy)
-                .strength(strength).psiSkill(psiSkill).psiStrength(psiStrength)
-                .meleeAccuracy(meleeAccuracy).armourType(armourType)
-                .missions(missions).killed(killed).picture(picture)
-                .build();
-        return soldierEntity;
+        AddRandomSoldier addRandomSoldier=new AddRandomSoldier(nationality);
+        addRandomSoldier.setSoldier(new AddCommander());
+        return addRandomSoldier.add(nationality);
     }
 
 
@@ -517,29 +381,5 @@ public class SoldierService {
             resultSoldier=soldierEntity;
         }
         return resultSoldier;
-    }
-
-    public static List<String> getAmericanSetOfNames() {
-        return americanSetOfNames;
-    }
-
-    public static List<String> getBritishSetOfNames() {
-        return britishSetOfNames;
-    }
-
-    public static List<String> getFrenchSetOfNames() {
-        return frenchSetOfNames;
-    }
-
-    public static List<String> getGermanSetOfNames() {
-        return germanSetOfNames;
-    }
-
-    public static List<String> getJapaneseSetOfNames() {
-        return japaneseSetOfNames;
-    }
-
-    public static List<String> getRussianSetOfNames() {
-        return russianSetOfNames;
     }
 }
