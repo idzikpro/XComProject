@@ -1,4 +1,4 @@
-package pl.idzikpro.xcom.mapper;
+package pl.idzikpro.xcom.converters;
 
 import org.springframework.core.convert.converter.Converter;
 import pl.idzikpro.xcom.entity.CraftEntity;

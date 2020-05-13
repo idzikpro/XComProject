@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.idzikpro.xcom.url.AlienConstans;
 import pl.idzikpro.xcom.entity.CraftEntity;
-import pl.idzikpro.xcom.mapper.CraftResultToCraftEntityMapper;
+import pl.idzikpro.xcom.mappers.CraftResultToCraftEntityMapper;
 import pl.idzikpro.xcom.repository.CraftRepository;
 import pl.idzikpro.xcom.tools.CraftService;
 

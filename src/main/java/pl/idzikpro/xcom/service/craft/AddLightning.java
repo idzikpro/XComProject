@@ -1,7 +1,7 @@
 package pl.idzikpro.xcom.service.craft;
 
 import pl.idzikpro.xcom.entity.CraftEntity;
-import pl.idzikpro.xcom.mapper.CraftStatsToCraftEntityConverter;
+import pl.idzikpro.xcom.converters.CraftStatsToCraftEntityConverter;
 
 public class AddLightning implements AddCraftInterface{
     @Override

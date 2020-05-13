@@ -1,7 +1,7 @@
 package pl.idzikpro.xcom.service.ship;
 
 import pl.idzikpro.xcom.entity.ShipEntity;
-import pl.idzikpro.xcom.mapper.ShipStatsToShipEntityConverter;
+import pl.idzikpro.xcom.converters.ShipStatsToShipEntityConverter;
 
 public class AddSupplyShip implements AddShipInterface {
     @Override

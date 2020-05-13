@@ -1,7 +1,7 @@
 package pl.idzikpro.xcom.service.aliens;
 
 import pl.idzikpro.xcom.entity.AlienEntity;
-import pl.idzikpro.xcom.mapper.AlienStatsToAlienEntityConverter;
+import pl.idzikpro.xcom.converters.AlienStatsToAlienEntityConverter;
 
 public class AddReaper implements AddAlienInterface {
     @Override

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.idzikpro.xcom.url.AlienConstans;
 import pl.idzikpro.xcom.entity.AlienEntity;
 import pl.idzikpro.xcom.entity.ShipEntity;
-import pl.idzikpro.xcom.mapper.ShipResultToShipEntityMapper;
+import pl.idzikpro.xcom.mappers.ShipResultToShipEntityMapper;
 import pl.idzikpro.xcom.repository.AlienRepository;
 import pl.idzikpro.xcom.repository.ShipRepository;
 import pl.idzikpro.xcom.tools.ShipService;

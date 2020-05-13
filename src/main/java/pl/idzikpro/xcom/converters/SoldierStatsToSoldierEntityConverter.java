@@ -1,10 +1,9 @@
-package pl.idzikpro.xcom.mapper;
+package pl.idzikpro.xcom.converters;
 
 import org.springframework.core.convert.converter.Converter;
 import pl.idzikpro.xcom.entity.SoldierEntity;
 import pl.idzikpro.xcom.service.soldiers.SoldierStats;
 import pl.idzikpro.xcom.tools.SoldierNameService;
-import pl.idzikpro.xcom.tools.SoldierService;
 
 public class SoldierStatsToSoldierEntityConverter implements Converter<SoldierStats, SoldierEntity> {
     @Override

@@ -1,13 +1,7 @@
 package pl.idzikpro.xcom.service.craft;
 
 import pl.idzikpro.xcom.entity.CraftEntity;
-import pl.idzikpro.xcom.mapper.AlienStatsToAlienEntityConverter;
-import pl.idzikpro.xcom.mapper.CraftStatsToCraftEntityConverter;
-import pl.idzikpro.xcom.service.aliens.AlienStats;
-import pl.idzikpro.xcom.service.aliens.AlienStatsRepository;
-
-import java.util.Arrays;
-import java.util.List;
+import pl.idzikpro.xcom.converters.CraftStatsToCraftEntityConverter;
 
 public class AddAvenger implements AddCraftInterface{
     @Override

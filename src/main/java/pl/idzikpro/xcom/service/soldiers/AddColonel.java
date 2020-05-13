@@ -1,7 +1,7 @@
 package pl.idzikpro.xcom.service.soldiers;
 
 import pl.idzikpro.xcom.entity.SoldierEntity;
-import pl.idzikpro.xcom.mapper.SoldierStatsToSoldierEntityConverter;
+import pl.idzikpro.xcom.converters.SoldierStatsToSoldierEntityConverter;
 
 public class AddColonel implements AddSoldierInterface{
     @Override

@@ -1,4 +1,4 @@
-package pl.idzikpro.xcom.mapper;
+package pl.idzikpro.xcom.mappers;
 
 import pl.idzikpro.xcom.entity.CraftEntity;
 

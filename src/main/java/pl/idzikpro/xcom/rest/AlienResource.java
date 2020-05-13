@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.idzikpro.xcom.url.AlienConstans;
 import pl.idzikpro.xcom.entity.AlienEntity;
-import pl.idzikpro.xcom.mapper.AlienResultToAlienEntityMapper;
+import pl.idzikpro.xcom.mappers.AlienResultToAlienEntityMapper;
 import pl.idzikpro.xcom.repository.AlienRepository;
 import pl.idzikpro.xcom.tools.AlienService;
 

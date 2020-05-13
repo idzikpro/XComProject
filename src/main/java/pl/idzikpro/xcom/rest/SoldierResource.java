@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.idzikpro.xcom.tools.SoldierNameService;
 import pl.idzikpro.xcom.url.AlienConstans;
 import pl.idzikpro.xcom.entity.SoldierEntity;
-import pl.idzikpro.xcom.mapper.SoldierResultToSoldierEntityMapper;
+import pl.idzikpro.xcom.mappers.SoldierResultToSoldierEntityMapper;
 import pl.idzikpro.xcom.repository.SoldierRepository;
 import pl.idzikpro.xcom.tools.SoldierService;
 
@@ -43,7 +43,7 @@ public class SoldierResource {
     public ResponseEntity<SoldierEntity> addSoldier(
             @RequestBody SoldierEntity soldierEntity) {
         SoldierEntity newSoldier = new SoldierEntity();
-        return new ResponseEntity<>(soldierRepository.save(SoldierResultToSoldierEntityMapper.convert(soldierEntity, newSoldier)), HttpStatus.OK);
+        return new ResponseEntity<>(soldierRepository.save(new SoldierResultToSoldierEntityMapper().convert(soldierEntity, newSoldier)), HttpStatus.OK);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
@@ -52,7 +52,7 @@ public class SoldierResource {
             @RequestBody SoldierEntity soldierEntity) {
         Optional<SoldierEntity> soldierResult = soldierRepository.findById(id);
         if (soldierResult.isPresent()) {
-            soldierRepository.save(SoldierResultToSoldierEntityMapper.convert(soldierEntity, soldierResult.get()));
+            soldierRepository.save(new SoldierResultToSoldierEntityMapper().convert(soldierEntity, soldierResult.get()));
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -88,7 +88,7 @@ public class SoldierResource {
     ) {
 
         SoldierEntity soldierEntity = SoldierService.addRandomSoldier(rank);
-        SoldierEntity result= SoldierResultToSoldierEntityMapper.convert(soldierEntity, soldierEntity);
+        SoldierEntity result= new SoldierResultToSoldierEntityMapper().convert(soldierEntity, soldierEntity);
         return new ResponseEntity<>(soldierRepository.save(result), HttpStatus.OK);
     }
 }
