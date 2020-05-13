@@ -1,5 +1,7 @@
 package pl.idzikpro.xcom.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +16,7 @@ import javax.persistence.*;
 @Entity
 @Builder
 @Table(name = "alien")
+@ApiModel(value = "Alien")
 public class AlienEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +31,10 @@ public class AlienEntity {
     @JoinColumn(name = "idship")
     private ShipEntity ship;
     @Column(name = "breed")
+    @ApiModelProperty(value = "race of alien")
     String breed;
     @Column(name = "rank")
+    @ApiModelProperty(value = "time units which alien can spend")
     String rank;
     @Column(name = "timeunits")
     int timeUnits;

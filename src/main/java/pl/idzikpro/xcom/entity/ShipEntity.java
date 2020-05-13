@@ -1,6 +1,8 @@
 package pl.idzikpro.xcom.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +18,7 @@ import java.util.List;
 @Entity
 @Builder
 @Table(name = "ship")
+@ApiModel(value = "Ship")
 public class ShipEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,16 +26,18 @@ public class ShipEntity {
     int id;
     @JsonIgnore
     @OneToMany(mappedBy = "ship",
-    cascade = {
-            CascadeType.PERSIST,
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.REFRESH
-    })
-    private List<AlienEntity> alienEntities=new ArrayList<>();
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH
+            })
+    private List<AlienEntity> alienEntities = new ArrayList<>();
     @Column(name = "size")
+    @ApiModelProperty(value = "size of ship")
     String size;
     @Column(name = "name")
+    @ApiModelProperty(value = "name of ship")
     String name;
     @Column(name = "maxspeed")
     int maxSpeed;
@@ -60,7 +65,8 @@ public class ShipEntity {
     String jpg2;
     @Column(name = "jpg3")
     String jpg3;
-    public void addAlienToList(AlienEntity alienEntity){
+
+    public void addAlienToList(AlienEntity alienEntity) {
         alienEntities.add(alienEntity);
     }
 }

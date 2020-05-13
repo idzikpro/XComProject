@@ -1,5 +1,7 @@
 package pl.idzikpro.xcom.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,12 +15,14 @@ import javax.persistence.*;
 @Entity
 @Builder
 @Table(name = "craft")
+@ApiModel(value = "Craft")
 public class CraftEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
     @Column(name = "name")
+    @ApiModelProperty(value = "name of the craft")
     String name;
     @Column(name = "maxspeed")
     int maxSpeed;

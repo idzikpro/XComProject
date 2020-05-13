@@ -1,22 +1,40 @@
 package pl.idzikpro.xcom.config;
 
-
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import static springfox.documentation.builders.PathSelectors.regex;
+import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-    public Docket docs(){
+    @Bean
+    public Docket docs() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("pl.idzikdev.Xcom.rest"))
-                .paths(regex("/*"))
+                .apis(RequestHandlerSelectors.basePackage("pl.idzikpro.xcom.rest"))
+                .paths(PathSelectors.ant("/v1/**"))
+                .build()
+                .apiInfo(getApiInfo());
+    }
+
+    private ApiInfo getApiInfo() {
+        return new ApiInfoBuilder()
+                .version("1.00")
+                .title("Ufo : Enemy Unknown")
+                .description("XCom api")
+                .license("Apache 2.0")
+                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+                .contact(new Contact("Idzik", "https://www.youtube.com/channel/UCxpHyY0itW7OftpW1t5TlKQ", "idzikpro@gmail.com"))
+                .extensions(Collections.emptyList())
                 .build();
     }
 }

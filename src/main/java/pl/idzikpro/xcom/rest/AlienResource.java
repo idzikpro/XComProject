@@ -1,5 +1,7 @@
 package pl.idzikpro.xcom.rest;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,15 +24,16 @@ public class AlienResource {
     @Autowired
     AlienRepository alienRepository;
 
+    @ApiOperation(value = "find all aliens",notes = "the method find all aliens stored in database")
     @RequestMapping(path = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<AlienEntity>> getAliens() {
         List<AlienEntity> alienList = alienRepository.findAll();
         return new ResponseEntity<>(alienList, HttpStatus.OK);
     }
-
+    @ApiOperation(value = "find alien by id",notes = "the method find alien by id")
     @RequestMapping(path = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AlienEntity> getAlienById(
-            @PathVariable String id
+            @ApiParam(value = "unique id of alien") @PathVariable String id
     ) {
         Optional<AlienEntity> alienEntityOptional = alienRepository.findById(Integer.valueOf(id));
         if (alienEntityOptional.isPresent()) return new ResponseEntity<>(alienEntityOptional.get(), HttpStatus.OK);

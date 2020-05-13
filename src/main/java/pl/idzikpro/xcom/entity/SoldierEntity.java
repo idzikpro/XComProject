@@ -1,5 +1,7 @@
 package pl.idzikpro.xcom.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,16 +15,19 @@ import javax.persistence.*;
 @Entity
 @Builder
 @Table(name = "soldier")
+@ApiModel(value = "Craft")
 public class SoldierEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
     @Column(name = "rank")
+    @ApiModelProperty(value = "rank of soldier")
     String rank;
     @Column(name = "name")
+    @ApiModelProperty(value = "name of soldier")
     String name;
-    @Column (name = "nationality")
+    @Column(name = "nationality")
     String nationality;
     @Column(name = "timeunits")
     int timeUnits;
