@@ -3,7 +3,6 @@ package pl.idzikpro.xcom.service.soldiers;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
-import pl.idzikpro.xcom.stats.soldier.SquaddieStats;
 
 import static pl.idzikpro.xcom.tools.Tools.drawNumber;
 
@@ -57,19 +56,19 @@ public class SoldierStats {
     private String picture;
 
     public void drawUnitStats(){
-        this.timeUnits = drawNumber(SquaddieStats.TIME_UNITS_MIN, SquaddieStats.TIME_UNITS_MAX);
-        this.energy = drawNumber(SquaddieStats.ENERGY_MIN, SquaddieStats.ENERGY_MAX);
-        this.health = drawNumber(SquaddieStats.HEALTH_MIN, SquaddieStats.HEALTH_MAX);
-        this.bravery = drawNumber(SquaddieStats.BRAVERY_MIN, SquaddieStats.BRAVERY_MAX);
-        this.reactions = drawNumber(SquaddieStats.REACTIONS_MIN, SquaddieStats.REACTIONS_MAX);
-        this.firingAccuracy = drawNumber(SquaddieStats.FIRING_ACCURACY_MIN, SquaddieStats.FIRING_ACCURACY_MAX);
-        this.throwingAccuracy = drawNumber(SquaddieStats.THROWING_ACCURACY_MIN, SquaddieStats.THROWING_ACCURACY_MAX);
-        this.strength = drawNumber(SquaddieStats.STRENGTH_MIN, SquaddieStats.STRENGTH_MAX);
-        this.psiSkill = drawNumber(SquaddieStats.PSI_SKILL_MIN, SquaddieStats.PSI_SKILL_MAX);
-        this.psiStrength = drawNumber(SquaddieStats.PSI_STRENGTH_MIN, SquaddieStats.PSI_STRENGTH_MAX);
-        this.meleeAccuracy = drawNumber(SquaddieStats.MELEE_ACCURACY_MIN, SquaddieStats.MELEE_ACCURACY_MAX);
-        this.missions = drawNumber(SquaddieStats.MISSIONS_MIN, SquaddieStats.MISSIONS_MAX);
-        this.killed = drawNumber(SquaddieStats.KILLED_MIN, SquaddieStats.KILLED_MAX);
+        this.timeUnits = drawNumber(timeUnitsMin, timeUnitsMax);
+        this.energy = drawNumber(energyMin, energyMax);
+        this.health = drawNumber(healthMin, healthMax);
+        this.bravery = drawNumber(braveryMin, braveryMax);
+        this.reactions = drawNumber(reactionsMin, reactionsMax);
+        this.firingAccuracy = drawNumber(firingAccuracyMin, firingAccuracyMax);
+        this.throwingAccuracy = drawNumber(throwingAccuracyMin, throwingAccuracyMax);
+        this.strength = drawNumber(strengthMin, strengthMax);
+        this.psiSkill = drawNumber(psiSkillMin, psiSkillMax);
+        this.psiStrength = drawNumber(psiStrengthMin, psiStrengthMax);
+        this.meleeAccuracy = drawNumber(meleeAccuracyMin, meleeAccuracyMax);
+        this.missions = drawNumber(missionsMix, missionsMax);
+        this.killed = drawNumber(killedMin, killedMax);
     }
 
     public void setArmourType(String armourType){

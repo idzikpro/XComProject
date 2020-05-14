@@ -1,14 +1,10 @@
 package pl.idzikpro.xcom.tools;
 
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.idzikpro.xcom.entity.SoldierEntity;
 import pl.idzikpro.xcom.repository.SoldierRepository;
 import pl.idzikpro.xcom.service.soldiers.*;
-import pl.idzikpro.xcom.stats.soldier.*;
-
-import java.util.*;
 
 @Service
 public class SoldierService {
