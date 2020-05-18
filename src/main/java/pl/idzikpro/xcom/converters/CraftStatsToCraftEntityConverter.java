@@ -8,7 +8,7 @@ public class CraftStatsToCraftEntityConverter implements Converter<CraftStats, C
 
     @Override
     public CraftEntity convert(CraftStats craftStats) {
-        CraftEntity craftEntity = CraftEntity.builder()
+        return CraftEntity.builder()
                 .name(craftStats.getName())
                 .maxSpeed(craftStats.getMaxSpeed())
                 .acceleration(craftStats.getAcceleration())
@@ -22,6 +22,5 @@ public class CraftStatsToCraftEntityConverter implements Converter<CraftStats, C
                 .jpg2(craftStats.getJpg2())
                 .jpg3(craftStats.getJpg3())
                 .build();
-        return craftEntity;
     }
 }

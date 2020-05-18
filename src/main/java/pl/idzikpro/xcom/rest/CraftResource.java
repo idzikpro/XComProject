@@ -7,10 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.idzikpro.xcom.url.AlienConstans;
 import pl.idzikpro.xcom.entity.CraftEntity;
-import pl.idzikpro.xcom.mappers.CraftResultToCraftEntityMapper;
 import pl.idzikpro.xcom.repository.CraftRepository;
 import pl.idzikpro.xcom.tools.CraftService;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +38,6 @@ public class CraftResource {
     @RequestMapping(path = "", method = RequestMethod.POST)
     public ResponseEntity<CraftEntity> addCraft(
             @RequestBody CraftEntity craftEntity) {
-//        CraftEntity result= CraftResultToCraftEntityConverter.convert(craftEntity, craftEntity);
         return new ResponseEntity<>(craftRepository.save(craftEntity), HttpStatus.OK);
     }
 
@@ -50,7 +47,6 @@ public class CraftResource {
             @RequestBody CraftEntity craftEntity) {
         Optional<CraftEntity> craftResult = craftRepository.findById(id);
         if (craftResult.isPresent()) {
-            CraftEntity result= CraftResultToCraftEntityMapper.convert(craftEntity, craftResult.get());
             craftRepository.save(craftResult.get());
             return new ResponseEntity<>(HttpStatus.OK);
         }
@@ -62,7 +58,6 @@ public class CraftResource {
             @RequestParam String name
     ) {
         CraftEntity craftEntity = CraftService.addCraft(name);
-//        CraftEntity result= CraftResultToCraftEntityConverter.convert(craftEntity, craftEntity);
         return new ResponseEntity<>(craftRepository.save(craftEntity), HttpStatus.OK);
     }
 
@@ -77,8 +72,8 @@ public class CraftResource {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(path = "",method = RequestMethod.DELETE)
-    public ResponseEntity<Void> deleteAllCraft(){
+    @RequestMapping(path = "", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteAllCraft() {
         craftRepository.deleteAll();
         return new ResponseEntity(HttpStatus.OK);
     }

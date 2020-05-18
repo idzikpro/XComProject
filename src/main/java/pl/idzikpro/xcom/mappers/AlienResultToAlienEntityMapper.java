@@ -2,75 +2,73 @@ package pl.idzikpro.xcom.mappers;
 
 import pl.idzikpro.xcom.entity.AlienEntity;
 import pl.idzikpro.xcom.tools.Tools;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class AlienResultToAlienEntityMapper {
-    public static AlienEntity convert(AlienEntity input,AlienEntity output){
-//        List<String> ranks=new ArrayList<>(Arrays.asList("soldier","medic","engineer","navigator","terrorist","leader","commander"));
-        List<String> breeds=new ArrayList<>(Arrays.asList("celatid","chryssalid","cyberdisc",
-                "ethereal","floater","muton","reaper","sectoid","sectopod","silacoid",
-                "snakeman","zombie"));
-        List<String> ranksOfEthereal=new ArrayList<>(Arrays.asList(
-                "soldier","leader","commander"
+    public static AlienEntity convert(AlienEntity input, AlienEntity output) {
+        List<String> breeds = new ArrayList<>(Arrays.asList("celatid", "chryssalid", "cyberdisc",
+                "ethereal", "floater", "muton", "reaper", "sectoid", "sectopod", "silacoid",
+                "snakeman", "zombie"));
+        List<String> ranksOfEthereal = new ArrayList<>(Arrays.asList(
+                "soldier", "leader", "commander"
         ));
-        List<String> ranksOfFloater=new ArrayList<>(Arrays.asList(
-                "soldier","medic","engineer","navigator","leader","commander"
+        List<String> ranksOfFloater = new ArrayList<>(Arrays.asList(
+                "soldier", "medic", "engineer", "navigator", "leader", "commander"
         ));
-        List<String> ranksOfMuton=new ArrayList<>(Arrays.asList(
-                "soldier","leader","commander"
+        List<String> ranksOfMuton = new ArrayList<>(Arrays.asList(
+                "soldier", "leader", "commander"
         ));
-        List<String> ranksOfSectoid=new ArrayList<>(Arrays.asList(
-                "soldier","medic","engineer","navigator","leader","commander"
+        List<String> ranksOfSectoid = new ArrayList<>(Arrays.asList(
+                "soldier", "medic", "engineer", "navigator", "leader", "commander"
         ));
-        List<String> ranksOfSnakeman=new ArrayList<>(Arrays.asList(
-                "soldier","engineer","navigator","leader","commander"
+        List<String> ranksOfSnakeman = new ArrayList<>(Arrays.asList(
+                "soldier", "engineer", "navigator", "leader", "commander"
         ));
-        if (breeds.contains(input.getBreed().toLowerCase())){
+        if (breeds.contains(input.getBreed().toLowerCase())) {
             output.setBreed(input.getBreed().toLowerCase());
-        }
-        else output.setBreed("sectoid");
-        switch (output.getBreed()){
-            case "celatid": case "chryssalid": case "cyberdisc":
-            case "reaper": case "sectopod": case "silacoid":
+        } else output.setBreed("sectoid");
+        switch (output.getBreed()) {
+            case "celatid":
+            case "chryssalid":
+            case "cyberdisc":
+            case "reaper":
+            case "sectopod":
+            case "silacoid":
             case "zombie": {
                 output.setRank("terrorist");
                 break;
             }
             case "ethereal": {
-                if (ranksOfEthereal.contains(input.getRank().toLowerCase())){
+                if (ranksOfEthereal.contains(input.getRank().toLowerCase())) {
                     output.setRank(input.getRank().toLowerCase());
-                }
-                else output.setRank(ranksOfEthereal.get(Tools.drawNumber(0,ranksOfEthereal.size()-1)));
+                } else output.setRank(ranksOfEthereal.get(Tools.drawNumber(0, ranksOfEthereal.size() - 1)));
                 break;
             }
             case "floater": {
-                if (ranksOfFloater.contains(input.getRank().toLowerCase())){
+                if (ranksOfFloater.contains(input.getRank().toLowerCase())) {
                     output.setRank(input.getRank().toLowerCase());
-                }
-                else output.setRank(ranksOfFloater.get(Tools.drawNumber(0,ranksOfFloater.size()-1)));
+                } else output.setRank(ranksOfFloater.get(Tools.drawNumber(0, ranksOfFloater.size() - 1)));
                 break;
             }
             case "muton": {
-                if (ranksOfMuton.contains(input.getRank().toLowerCase())){
+                if (ranksOfMuton.contains(input.getRank().toLowerCase())) {
                     output.setRank(input.getRank().toLowerCase());
-                }
-                else output.setRank(ranksOfMuton.get(Tools.drawNumber(0,ranksOfMuton.size()-1)));
+                } else output.setRank(ranksOfMuton.get(Tools.drawNumber(0, ranksOfMuton.size() - 1)));
                 break;
             }
             case "sectoid": {
-                if (ranksOfSectoid.contains(input.getRank().toLowerCase())){
+                if (ranksOfSectoid.contains(input.getRank().toLowerCase())) {
                     output.setRank(input.getRank().toLowerCase());
-                }
-                else output.setRank(ranksOfSectoid.get(Tools.drawNumber(0,ranksOfSectoid.size()-1)));
+                } else output.setRank(ranksOfSectoid.get(Tools.drawNumber(0, ranksOfSectoid.size() - 1)));
                 break;
             }
             case "snakeman": {
-                if (ranksOfSnakeman.contains(input.getRank().toLowerCase())){
+                if (ranksOfSnakeman.contains(input.getRank().toLowerCase())) {
                     output.setRank(input.getRank().toLowerCase());
-                }
-                else output.setRank(ranksOfSnakeman.get(Tools.drawNumber(0,ranksOfSnakeman.size()-1)));
+                } else output.setRank(ranksOfSnakeman.get(Tools.drawNumber(0, ranksOfSnakeman.size() - 1)));
                 break;
             }
         }

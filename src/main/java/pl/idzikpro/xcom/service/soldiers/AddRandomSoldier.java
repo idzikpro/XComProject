@@ -13,7 +13,8 @@ public class AddRandomSoldier {
     public void setSoldier(AddSoldierInterface soldier) {
         this.soldier = soldier;
     }
-    public SoldierEntity add(String nationality){
+
+    public SoldierEntity add(String nationality) {
         return this.soldier.add(nationality);
     }
 }

@@ -7,7 +7,7 @@ import pl.idzikpro.xcom.service.ship.ShipStats;
 public class ShipStatsToShipEntityConverter implements Converter<ShipStats, ShipEntity> {
     @Override
     public ShipEntity convert(ShipStats shipStats) {
-        ShipEntity shipEntity = ShipEntity.builder()
+        return ShipEntity.builder()
                 .size(shipStats.getSize())
                 .name(shipStats.getName())
                 .maxSpeed(shipStats.getMaxSpeed())
@@ -24,6 +24,5 @@ public class ShipStatsToShipEntityConverter implements Converter<ShipStats, Ship
                 .jpg2(shipStats.getJpg2())
                 .jpg3(shipStats.getJpg3())
                 .build();
-        return shipEntity;
     }
 }

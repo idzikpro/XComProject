@@ -89,7 +89,7 @@ public class AlienStats {
     private int heightStanding;
     private int heightKneeling;
 
-    public void drawUnitStats(){
+    public void drawUnitStats() {
         this.timeUnits = Tools.drawNumber(timeUnitsMin, timeUnitsMax);
         this.health = Tools.drawNumber(healthMin, healthMax);
         this.energy = Tools.drawNumber(energyMin, energyMax);
@@ -114,13 +114,13 @@ public class AlienStats {
         this.heightKneeling = Tools.drawNumber(heightKneelingMin, heightKneelingMax);
     }
 
-    public void setRank(String rank){
+    public void setRank(String rank) {
         String alienRank;
         if (validRanks.contains(rank)) {
             alienRank = rank;
         } else {
             alienRank = validRanks.get(Tools.drawNumber(0, validRanks.size() - 1));
         }
-        this.rank=alienRank;
+        this.rank = alienRank;
     }
 }

@@ -4,7 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import pl.idzikpro.xcom.tools.SoldierNameService;
-import pl.idzikpro.xcom.tools.SoldierService;
 
 @Component
 @Order(0)

@@ -31,4 +31,3 @@ public class SoldierRanksImageResource {
                 .body(new InputStreamResource(imgFile.getInputStream()));
     }
 }
-

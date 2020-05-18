@@ -17,21 +17,21 @@ public class AlienRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<AlienEntity> alienEntityList= Arrays.asList(
-                AlienService.addAlien("celatid","terrorist"),
-                AlienService.addAlien("chryssalid","terrorist"),
-                AlienService.addAlien("cyberdisc","terrorist"),
-                AlienService.addAlien("ethereal","navigator"),
-                AlienService.addAlien("floater","medic"),
-                AlienService.addAlien("muton","engineer"),
-                AlienService.addAlien("reaper","navigator"),
-                AlienService.addAlien("sectoid","leader"),
-                AlienService.addAlien("sectopod","terrorist"),
-                AlienService.addAlien("silacoid","terrorist"),
-                AlienService.addAlien("snakeman","navigator"),
-                AlienService.addAlien("zombie","terrorist")
+        List<AlienEntity> alienEntityList = Arrays.asList(
+                AlienService.addAlien("celatid", "terrorist"),
+                AlienService.addAlien("chryssalid", "terrorist"),
+                AlienService.addAlien("cyberdisc", "terrorist"),
+                AlienService.addAlien("ethereal", "navigator"),
+                AlienService.addAlien("floater", "medic"),
+                AlienService.addAlien("muton", "engineer"),
+                AlienService.addAlien("reaper", "navigator"),
+                AlienService.addAlien("sectoid", "leader"),
+                AlienService.addAlien("sectopod", "terrorist"),
+                AlienService.addAlien("silacoid", "terrorist"),
+                AlienService.addAlien("snakeman", "navigator"),
+                AlienService.addAlien("zombie", "terrorist")
         );
-        for (AlienEntity alienEntity:alienEntityList
+        for (AlienEntity alienEntity : alienEntityList
         ) {
             alienRepository.save(alienEntity);
         }

@@ -1,6 +1,5 @@
 package pl.idzikpro.xcom.tools;
 
-
 import java.util.*;
 
 public class Tools {

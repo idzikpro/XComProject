@@ -3,10 +3,10 @@ package pl.idzikpro.xcom.service.soldiers;
 import pl.idzikpro.xcom.entity.SoldierEntity;
 import pl.idzikpro.xcom.converters.SoldierStatsToSoldierEntityConverter;
 
-public class AddRookie implements AddSoldierInterface{
+public class AddRookie implements AddSoldierInterface {
     @Override
     public SoldierEntity add(String nationality) {
-        SoldierStats soldierStats=SoldierStatsRepository.getRookieStats();
+        SoldierStats soldierStats = SoldierStatsRepository.getRookieStats();
         soldierStats.drawUnitStats();
         soldierStats.setNationality(nationality);
         soldierStats.setArmourType("no-armour");

@@ -6,7 +6,7 @@ import pl.idzikpro.xcom.converters.AlienStatsToAlienEntityConverter;
 public class AddEthereal implements AddAlienInterface {
     @Override
     public AlienEntity add(String rank) {
-        AlienStats alienStats= AlienStatsRepository.getEtherealStats();
+        AlienStats alienStats = AlienStatsRepository.getEtherealStats();
         alienStats.drawUnitStats();
         alienStats.setRank(rank);
         return new AlienStatsToAlienEntityConverter().convert(alienStats);

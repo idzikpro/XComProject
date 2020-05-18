@@ -9,7 +9,7 @@ public class ShipService {
 
     public static ShipEntity addShip(String name) {
         ShipEntity shipEntity;
-        AddShip addShip=new AddShip();
+        AddShip addShip = new AddShip();
         switch (name) {
             case "smallscout": {
                 addShip.setShip(new AddSmallScout());

@@ -1,33 +1,40 @@
 package pl.idzikpro.xcom.service.ship;
 
 import lombok.Data;
-import pl.idzikpro.xcom.entity.ShipEntity;
-import pl.idzikpro.xcom.service.craft.CraftStats;
 
 @Data
 public class ShipStatsRepository {
     public static ShipStats getAbductorStats() {
         return abductorStats;
     }
+
     public static ShipStats getBattleStats() {
         return battleStats;
     }
+
     public static ShipStats getHarvesterStats() {
         return harvesterStats;
     }
+
     public static ShipStats getLargeScoutStats() {
         return largeScoutStats;
     }
+
     public static ShipStats getMediumScoutStats() {
         return mediumScoutStats;
     }
+
     public static ShipStats getSmallScoutStats() {
         return smallScoutStats;
     }
+
     public static ShipStats getSupplyStats() {
         return supplyStats;
     }
-    public static ShipStats getTerrorStats() {return terrorStats;}
+
+    public static ShipStats getTerrorStats() {
+        return terrorStats;
+    }
 
 
     private static ShipStats abductorStats = ShipStats.builder()

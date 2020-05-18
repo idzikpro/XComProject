@@ -55,7 +55,7 @@ public class AlienStatsRepository {
         return zombieStats;
     }
 
-    private static AlienStats celatidStats= AlienStats.builder()
+    private static AlienStats celatidStats = AlienStats.builder()
             .name("celatid")
             .timeUnitsMin(70)
             .timeUnitsMax(81)
@@ -111,7 +111,7 @@ public class AlienStatsRepository {
             .validRanks(Arrays.asList("terrorist")).build();
 
 
-    private static AlienStats chryssalidStats= AlienStats.builder()
+    private static AlienStats chryssalidStats = AlienStats.builder()
             .name("chryssalid")
             .timeUnitsMin(110)
             .timeUnitsMax(127)
@@ -166,7 +166,7 @@ public class AlienStatsRepository {
             .validRankCommander(false)
             .validRanks(Arrays.asList("terrorist")).build();
 
-    private static AlienStats cyberdiscStats= AlienStats.builder()
+    private static AlienStats cyberdiscStats = AlienStats.builder()
             .name("cyberdisc")
             .timeUnitsMin(62)
             .timeUnitsMax(71)
@@ -221,7 +221,7 @@ public class AlienStatsRepository {
             .validRankCommander(false)
             .validRanks(Arrays.asList("terrorist")).build();
 
-    private static AlienStats etherealStats= AlienStats.builder()
+    private static AlienStats etherealStats = AlienStats.builder()
             .name("ethereal")
             .timeUnitsMin(68)
             .timeUnitsMax(78)
@@ -274,9 +274,9 @@ public class AlienStatsRepository {
             .validRankTerrorist(false)
             .validRankLeader(true)
             .validRankCommander(true)
-            .validRanks(Arrays.asList("soldier","leader","commander")).build();
+            .validRanks(Arrays.asList("soldier", "leader", "commander")).build();
 
-    private static AlienStats floaterStats= AlienStats.builder()
+    private static AlienStats floaterStats = AlienStats.builder()
             .name("floater")
             .timeUnitsMin(50)
             .timeUnitsMax(69)
@@ -329,9 +329,9 @@ public class AlienStatsRepository {
             .validRankTerrorist(false)
             .validRankLeader(true)
             .validRankCommander(true)
-            .validRanks(Arrays.asList("soldier","navigator","medic","engineer","leader","commander")).build();
+            .validRanks(Arrays.asList("soldier", "navigator", "medic", "engineer", "leader", "commander")).build();
 
-    private static AlienStats mutonStats= AlienStats.builder()
+    private static AlienStats mutonStats = AlienStats.builder()
             .name("muton")
             .timeUnitsMin(56)
             .timeUnitsMax(64)
@@ -384,9 +384,9 @@ public class AlienStatsRepository {
             .validRankTerrorist(false)
             .validRankLeader(false)
             .validRankCommander(false)
-            .validRanks(Arrays.asList("soldier","navigator","engineer")).build();
+            .validRanks(Arrays.asList("soldier", "navigator", "engineer")).build();
 
-    private static AlienStats reaperStats= AlienStats.builder()
+    private static AlienStats reaperStats = AlienStats.builder()
             .name("reaper")
             .timeUnitsMin(62)
             .timeUnitsMax(71)
@@ -441,7 +441,7 @@ public class AlienStatsRepository {
             .validRankCommander(false)
             .validRanks(Arrays.asList("terrorist")).build();
 
-    private static AlienStats sectoidStats= AlienStats.builder()
+    private static AlienStats sectoidStats = AlienStats.builder()
             .name("sectoid")
             .timeUnitsMin(54)
             .timeUnitsMax(62)
@@ -494,9 +494,9 @@ public class AlienStatsRepository {
             .validRankTerrorist(false)
             .validRankLeader(true)
             .validRankCommander(true)
-            .validRanks(Arrays.asList("soldier","navigator","medic","engineer","leader","commander")).build();
+            .validRanks(Arrays.asList("soldier", "navigator", "medic", "engineer", "leader", "commander")).build();
 
-    private static AlienStats sectopodStats= AlienStats.builder()
+    private static AlienStats sectopodStats = AlienStats.builder()
             .name("sectopod")
             .timeUnitsMin(62)
             .timeUnitsMax(71)
@@ -549,9 +549,10 @@ public class AlienStatsRepository {
             .validRankTerrorist(true)
             .validRankLeader(false)
             .validRankCommander(false)
-            .validRanks(Arrays.asList("terrorist")).build();            ;
+            .validRanks(Arrays.asList("terrorist")).build();
+    ;
 
-    private static AlienStats silacoidStats= AlienStats.builder()
+    private static AlienStats silacoidStats = AlienStats.builder()
             .name("silacoid")
             .timeUnitsMin(40)
             .timeUnitsMax(46)
@@ -606,7 +607,7 @@ public class AlienStatsRepository {
             .validRankCommander(false)
             .validRanks(Arrays.asList("terrorist")).build();
 
-    private static AlienStats snakemanStats= AlienStats.builder()
+    private static AlienStats snakemanStats = AlienStats.builder()
             .name("snakeman")
             .timeUnitsMin(40)
             .timeUnitsMax(52)
@@ -659,9 +660,9 @@ public class AlienStatsRepository {
             .validRankTerrorist(false)
             .validRankLeader(true)
             .validRankCommander(true)
-            .validRanks(Arrays.asList("soldier","navigator","engineer","leader","commander")).build();
+            .validRanks(Arrays.asList("soldier", "navigator", "engineer", "leader", "commander")).build();
 
-    private static AlienStats zombieStats= AlienStats.builder()
+    private static AlienStats zombieStats = AlienStats.builder()
             .name("zombie")
             .timeUnitsMin(40)
             .timeUnitsMax(40)

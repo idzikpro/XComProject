@@ -8,7 +8,7 @@ import java.util.List;
 
 public class SoldierResultToSoldierEntityMapper {
 
-    public SoldierEntity convert(SoldierEntity input,SoldierEntity output) {
+    public SoldierEntity convert(SoldierEntity input, SoldierEntity output) {
         List<String> ranks = new ArrayList<>(Arrays.asList("rookie", "squaddie", "sergeant",
                 "captain", "colonel", "commander"));
         List<String> armours = new ArrayList<>(Arrays.asList("none", "personal armour",
@@ -74,10 +74,6 @@ public class SoldierResultToSoldierEntityMapper {
         output.setMeleeAccuracy(input.getMeleeAccuracy());
         output.setMissions(input.getMissions());
         output.setKilled(input.getKilled());
-        System.out.println("INPUT");
-        System.out.println(input);
-        System.out.println("OUTPUT");
-        System.out.println(output);
         return output;
     }
 }

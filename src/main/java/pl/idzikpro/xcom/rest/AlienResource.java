@@ -13,7 +13,6 @@ import pl.idzikpro.xcom.mappers.AlienResultToAlienEntityMapper;
 import pl.idzikpro.xcom.repository.AlienRepository;
 import pl.idzikpro.xcom.tools.AlienService;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -24,13 +23,14 @@ public class AlienResource {
     @Autowired
     AlienRepository alienRepository;
 
-    @ApiOperation(value = "find all aliens",notes = "the method find all aliens stored in database")
+    @ApiOperation(value = "find all aliens", notes = "the method find all aliens stored in database")
     @RequestMapping(path = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<AlienEntity>> getAliens() {
         List<AlienEntity> alienList = alienRepository.findAll();
         return new ResponseEntity<>(alienList, HttpStatus.OK);
     }
-    @ApiOperation(value = "find alien by id",notes = "the method find alien by id")
+
+    @ApiOperation(value = "find alien by id", notes = "the method find alien by id")
     @RequestMapping(path = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AlienEntity> getAlienById(
             @ApiParam(value = "unique id of alien") @PathVariable String id
@@ -44,7 +44,6 @@ public class AlienResource {
     public ResponseEntity<AlienEntity> addAlien(
             @RequestBody AlienEntity alienEntity) {
         AlienEntity newAlien = new AlienEntity();
-//        return new ResponseEntity<>(alienRepository.save(AlienResultToAlienEntityConverter.convert(alienEntity,newAlien)), HttpStatus.OK);
         return new ResponseEntity<>(alienRepository.save(alienEntity), HttpStatus.OK);
     }
 
@@ -67,12 +66,7 @@ public class AlienResource {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-
-        //TODO a co z podmianą statków??
-        //TODO niech puty zwracają zmienioną klasę
     }
-
 
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<AlienEntity> deleteAlien(

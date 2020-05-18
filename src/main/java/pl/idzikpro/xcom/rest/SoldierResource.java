@@ -12,7 +12,6 @@ import pl.idzikpro.xcom.mappers.SoldierResultToSoldierEntityMapper;
 import pl.idzikpro.xcom.repository.SoldierRepository;
 import pl.idzikpro.xcom.tools.SoldierService;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -88,7 +87,7 @@ public class SoldierResource {
     ) {
 
         SoldierEntity soldierEntity = SoldierService.addRandomSoldier(rank);
-        SoldierEntity result= new SoldierResultToSoldierEntityMapper().convert(soldierEntity, soldierEntity);
+        SoldierEntity result = new SoldierResultToSoldierEntityMapper().convert(soldierEntity, soldierEntity);
         return new ResponseEntity<>(soldierRepository.save(result), HttpStatus.OK);
     }
 }

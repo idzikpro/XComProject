@@ -6,7 +6,7 @@ import pl.idzikpro.xcom.converters.AlienStatsToAlienEntityConverter;
 public class AddSnakeman implements AddAlienInterface {
     @Override
     public AlienEntity add(String rank) {
-        AlienStats alienStats= AlienStatsRepository.getSnakemanStats();
+        AlienStats alienStats = AlienStatsRepository.getSnakemanStats();
         alienStats.drawUnitStats();
         alienStats.setRank(rank);
         return new AlienStatsToAlienEntityConverter().convert(alienStats);

@@ -6,7 +6,7 @@ import pl.idzikpro.xcom.converters.AlienStatsToAlienEntityConverter;
 public class AddSectoid implements AddAlienInterface {
     @Override
     public AlienEntity add(String rank) {
-        AlienStats alienStats= AlienStatsRepository.getSectoidStats();
+        AlienStats alienStats = AlienStatsRepository.getSectoidStats();
         alienStats.drawUnitStats();
         alienStats.setRank(rank);
         return new AlienStatsToAlienEntityConverter().convert(alienStats);

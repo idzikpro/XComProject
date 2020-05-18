@@ -44,7 +44,7 @@ public class ShipResource {
     @RequestMapping(path = "", method = RequestMethod.POST)
     public ResponseEntity<ShipEntity> addShip(
             @RequestBody ShipEntity shipEntity) {
-        ShipEntity result= ShipResultToShipEntityMapper.convert(shipEntity, shipEntity);
+        ShipEntity result = ShipResultToShipEntityMapper.convert(shipEntity, shipEntity);
         return new ResponseEntity<>(shipRepository.save(result), HttpStatus.OK);
     }
 
@@ -54,7 +54,7 @@ public class ShipResource {
             @RequestBody ShipEntity shipEntity) {
         Optional<ShipEntity> shipResult = shipRepository.findById(id);
         if (shipResult.isPresent()) {
-            ShipEntity result= ShipResultToShipEntityMapper.convert(shipEntity, shipResult.get());
+            ShipEntity result = ShipResultToShipEntityMapper.convert(shipEntity, shipResult.get());
             shipRepository.save(result);
             return new ResponseEntity<>(HttpStatus.OK);
         }
@@ -72,8 +72,8 @@ public class ShipResource {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(path = "",method = RequestMethod.DELETE)
-    public ResponseEntity<Void> deleteAllShips(){
+    @RequestMapping(path = "", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteAllShips() {
         shipRepository.deleteAll();
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -83,25 +83,22 @@ public class ShipResource {
             @RequestParam String name
     ) {
         ShipEntity shipEntity = ShipService.addShip(name);
-       // ShipEntity result= ShipResultToShipEntityConverter.convert(shipEntity, shipEntity);
+        // ShipEntity result= ShipResultToShipEntityConverter.convert(shipEntity, shipEntity);
         return new ResponseEntity<>(shipRepository.save(shipEntity), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "random",method = RequestMethod.PUT)
+    @RequestMapping(path = "random", method = RequestMethod.PUT)
     public ResponseEntity<ShipEntity> addAlienToShip(
             @RequestParam int alienId,
-            @RequestParam int shipId){
+            @RequestParam int shipId) {
         Optional<AlienEntity> alienEntityOptional = alienRepository.findById(alienId);
         Optional<ShipEntity> shipEntityOptional = shipRepository.findById(shipId);
-        if (alienEntityOptional.isPresent()&& shipEntityOptional.isPresent()) {
+        if (alienEntityOptional.isPresent() && shipEntityOptional.isPresent()) {
             alienEntityOptional.get().setShip(shipEntityOptional.get());
             shipEntityOptional.get().addAlienToList(alienEntityOptional.get());
             alienRepository.save(alienEntityOptional.get());
             shipRepository.save(shipEntityOptional.get());
         }
         return new ResponseEntity<>(HttpStatus.OK);
-
-        //TODO nie powiino czegoś zwracać zeby było wiadomo ze wszsytko ok?
     }
-
 }

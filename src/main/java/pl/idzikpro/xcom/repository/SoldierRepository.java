@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface SoldierRepository extends JpaRepository<SoldierEntity,Integer> {
+public interface SoldierRepository extends JpaRepository<SoldierEntity, Integer> {
     Optional<SoldierEntity> findById(Integer aLong);
 
     @Override

@@ -30,11 +30,11 @@ public class SoldierNameService {
 
 
     public static String selectRandomName(String nationality) {
-        String result= "Android";
+        String result = "Android";
         int nameIndex;
         switch (nationality) {
             case "us": {
-                if (getAmericanSetOfNames().size()>0) {
+                if (getAmericanSetOfNames().size() > 0) {
                     nameIndex = drawNumber(0, americanSetOfNames.size() - 1);
                     result = americanSetOfNames.get(nameIndex);
                     americanSetOfNames.remove(nameIndex);
@@ -42,7 +42,7 @@ public class SoldierNameService {
                 break;
             }
             case "gb": {
-                if (getBritishSetOfNames().size()>0){
+                if (getBritishSetOfNames().size() > 0) {
                     nameIndex = drawNumber(0, britishSetOfNames.size() - 1);
                     result = britishSetOfNames.get(nameIndex);
                     britishSetOfNames.remove(nameIndex);
@@ -50,7 +50,7 @@ public class SoldierNameService {
                 break;
             }
             case "fr": {
-                if (getFrenchSetOfNames().size()>0){
+                if (getFrenchSetOfNames().size() > 0) {
                     nameIndex = drawNumber(0, frenchSetOfNames.size() - 1);
                     result = frenchSetOfNames.get(nameIndex);
                     frenchSetOfNames.remove(nameIndex);
@@ -58,7 +58,7 @@ public class SoldierNameService {
                 break;
             }
             case "de": {
-                if (getGermanSetOfNames().size()>0){
+                if (getGermanSetOfNames().size() > 0) {
                     nameIndex = drawNumber(0, germanSetOfNames.size() - 1);
                     result = germanSetOfNames.get(nameIndex);
                     germanSetOfNames.remove(nameIndex);
@@ -66,7 +66,7 @@ public class SoldierNameService {
                 break;
             }
             case "jp": {
-                if (getJapaneseSetOfNames().size()>0){
+                if (getJapaneseSetOfNames().size() > 0) {
                     nameIndex = drawNumber(0, japaneseSetOfNames.size() - 1);
                     result = japaneseSetOfNames.get(nameIndex);
                     japaneseSetOfNames.remove(nameIndex);
@@ -74,7 +74,7 @@ public class SoldierNameService {
                 break;
             }
             default: {
-                if (getRussianSetOfNames().size()>0){
+                if (getRussianSetOfNames().size() > 0) {
                     nameIndex = drawNumber(0, russianSetOfNames.size() - 1);
                     result = russianSetOfNames.get(nameIndex);
                     russianSetOfNames.remove(nameIndex);
@@ -125,16 +125,16 @@ public class SoldierNameService {
     public static void showNames() {
         System.out.println(
                 "US-" + getAmericanSetOfNames().size() + ", " +
-                "GB-" + getBritishSetOfNames().size() + ", " +
-                "FR-" + getFrenchSetOfNames().size() + ", " +
-                "DE-" + getGermanSetOfNames().size() + ", " +
-                "JP-" + getJapaneseSetOfNames().size() + ", " +
-                "RU-" + getRussianSetOfNames().size()
+                        "GB-" + getBritishSetOfNames().size() + ", " +
+                        "FR-" + getFrenchSetOfNames().size() + ", " +
+                        "DE-" + getGermanSetOfNames().size() + ", " +
+                        "JP-" + getJapaneseSetOfNames().size() + ", " +
+                        "RU-" + getRussianSetOfNames().size()
         );
     }
 
     public static void fillNames(String nationality) {
-        //todo trzeba dodać czyszczenie listy
+        deleteNames();
         switch (nationality) {
             case "american": {
                 americanSetOfNames.addAll(Arrays.asList(

@@ -14,7 +14,7 @@ public class AddRandomAlienByRank {
         this.rank = rank;
     }
 
-    public AlienEntity add(){
+    public AlienEntity add() {
         return this.alien.add(rank);
     }
 }

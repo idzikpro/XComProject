@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CraftRepository extends JpaRepository<CraftEntity,Integer> {
+public interface CraftRepository extends JpaRepository<CraftEntity, Integer> {
     Optional<CraftEntity> findById(Integer aLong);
 
     @Override

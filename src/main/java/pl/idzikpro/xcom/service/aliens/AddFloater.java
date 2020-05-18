@@ -6,7 +6,7 @@ import pl.idzikpro.xcom.converters.AlienStatsToAlienEntityConverter;
 public class AddFloater implements AddAlienInterface {
     @Override
     public AlienEntity add(String rank) {
-        AlienStats alienStats= AlienStatsRepository.getFloaterStats();
+        AlienStats alienStats = AlienStatsRepository.getFloaterStats();
         alienStats.drawUnitStats();
         alienStats.setRank(rank);
         return new AlienStatsToAlienEntityConverter().convert(alienStats);

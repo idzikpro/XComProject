@@ -55,7 +55,7 @@ public class SoldierStats {
     private String armourType;
     private String picture;
 
-    public void drawUnitStats(){
+    public void drawUnitStats() {
         this.timeUnits = drawNumber(timeUnitsMin, timeUnitsMax);
         this.energy = drawNumber(energyMin, energyMax);
         this.health = drawNumber(healthMin, healthMax);
@@ -71,15 +71,15 @@ public class SoldierStats {
         this.killed = drawNumber(killedMin, killedMax);
     }
 
-    public void setArmourType(String armourType){
-        this.armourType=armourType;
+    public void setArmourType(String armourType) {
+        this.armourType = armourType;
     }
 
-    public void setPicture(String picture){
-        this.picture=picture;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
-    public void setNationality(String nationality){
-        this.nationality=nationality;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 }

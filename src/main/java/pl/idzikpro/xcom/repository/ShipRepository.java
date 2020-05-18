@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ShipRepository extends JpaRepository<ShipEntity,Integer> {
+public interface ShipRepository extends JpaRepository<ShipEntity, Integer> {
     Optional<ShipEntity> findById(Integer aLong);
 
     @Override

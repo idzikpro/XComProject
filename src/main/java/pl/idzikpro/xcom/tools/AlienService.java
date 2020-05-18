@@ -9,7 +9,7 @@ public class AlienService {
 
     public static AlienEntity addAlien(String race, String rank) {
         AlienEntity alienEntity;
-        AddRandomAlienByRank addRandomAlienByRank =new AddRandomAlienByRank(rank);
+        AddRandomAlienByRank addRandomAlienByRank = new AddRandomAlienByRank(rank);
 
         switch (race) {
             case "celatid": {
@@ -33,7 +33,8 @@ public class AlienService {
                 break;
             }
             case "muton": {
-                addRandomAlienByRank.setAlien(new AddMuton());;
+                addRandomAlienByRank.setAlien(new AddMuton());
+                ;
                 break;
             }
             case "reaper": {
@@ -59,7 +60,7 @@ public class AlienService {
             default:
                 addRandomAlienByRank.setAlien(new AddZombie());
         }
-        alienEntity= addRandomAlienByRank.add();
+        alienEntity = addRandomAlienByRank.add();
         return alienEntity;
     }
 }

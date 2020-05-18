@@ -21,10 +21,10 @@ public class CraftStats {
     private String jpg2;
     private String jpg3;
 
-    public void fillJpg(String [] jpg){
-        jpg0=jpg[0];
-        jpg1=jpg[1];
-        jpg2=jpg[2];
-        jpg3=jpg[3];
+    public void fillJpg(String[] jpg) {
+        jpg0 = jpg[0];
+        jpg1 = jpg[1];
+        jpg2 = jpg[2];
+        jpg3 = jpg[3];
     }
 }

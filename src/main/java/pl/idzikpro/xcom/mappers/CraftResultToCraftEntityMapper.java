@@ -15,36 +15,36 @@ public class CraftResultToCraftEntityMapper {
         if (names.contains(input.getName().toLowerCase())) {
             output.setName(input.getName().toLowerCase());
         } else output.setName("skyranger");
-        switch (input.getName()){
-            case "skyranger":{
+        switch (input.getName()) {
+            case "skyranger": {
                 output.setJpg0("skyranger-0");
                 output.setJpg1("skyranger-1");
                 output.setJpg2("skyranger-2");
                 output.setJpg3("skyranger-3");
                 break;
             }
-            case "interceptor":{
+            case "interceptor": {
                 output.setJpg0("interceptor-3");
                 output.setJpg1("interceptor-3");
                 output.setJpg2("interceptor-3");
                 output.setJpg3("interceptor-3");
                 break;
             }
-            case "firestorm":{
+            case "firestorm": {
                 output.setJpg0("firestorm-3");
                 output.setJpg1("firestorm-3");
                 output.setJpg2("firestorm-3");
                 output.setJpg3("firestorm-3");
                 break;
             }
-            case "lightning":{
+            case "lightning": {
                 output.setJpg0("lightning-0");
                 output.setJpg1("lightning-1");
                 output.setJpg2("lightning-2");
                 output.setJpg3("lightning-3");
                 break;
             }
-            case "avenger":{
+            case "avenger": {
                 output.setJpg0("avenger-0");
                 output.setJpg1("avenger-1");
                 output.setJpg2("avenger-2");
